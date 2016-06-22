@@ -5,9 +5,10 @@ import sys
 
 # Pyaudio Initialization
 chunk = 1024
-p = pyaudio.PyAudio()
+pa = pyaudio.PyAudio()
 
-stream = p.open(format = pyaudio.paInt16,
+# Opening of the audio stream
+stream = pa.open(format = pyaudio.paInt16,
                 channels = 1,
                 rate = 10240,
                 output = True)
@@ -17,11 +18,12 @@ host = 'localhost'
 port = 50000
 backlog = 5
 size = 1024
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((host,port))
-s.listen(backlog)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind((host,port))
+sock.listen(backlog)
 
-client, address = s.accept()
+client, address = sock.accept()
+print "Server is now running\n======================="
 
 # Main Functionality
 while 1:
@@ -33,4 +35,5 @@ while 1:
 
 client.close()
 stream.close()
-p.terminate()
+pa.terminate()
+print "Server has stopped running"
