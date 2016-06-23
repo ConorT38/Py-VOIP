@@ -5,3 +5,7 @@ Python VOIP - (Voice Over IP)
 <li>User Accounts</li>
 <li>Preferences</li>
 <li>Chunk/Quality settings</li>
+
+##Req: 
+<li>Python 2.7</li>
+<li>PyAudio</li>
