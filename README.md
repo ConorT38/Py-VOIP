@@ -1,1 +1,6 @@
 # Py-VOIP
+
+<blockquote>Python VOIP - (Voice Over IP)</blockquote>
+<p>This small project allows users to communicate through voice over the internet, upcoming features will be:</p>
+<li>Messaging</li>
+<li>Messaging</li>
