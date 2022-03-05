@@ -23,7 +23,7 @@ stream = p.open(format = FORMAT,
 host = 'localhost'
 port = 50000
 size = 1024
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect((host,port))
 
 class VOIP_FRAME(Frame):
@@ -34,14 +34,14 @@ class VOIP_FRAME(Frame):
         
     def muteSpeak(self,event):
         self.mute = True
-        print "You are now muted"
+        print("You are now muted")
         
     def speakStart(self):
         t = threading.Thread(target=self.speak)
         t.start()
                 
     def speak(self):
-        print "You are now speaking"
+        print("You are now speaking")
         while self.mute is False:
             data = stream.read(chunk)
             s.send(data)
